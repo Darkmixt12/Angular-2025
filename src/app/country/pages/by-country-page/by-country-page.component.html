@@ -1,3 +1,10 @@
-<country-search-input placeholder="Buscar por País" (messageEvent)="consoleEventEmitter($event)" />
-<p> {{receivedMessage()}}</p>
-<country-list [countries]="[]"/>
+<country-search-input
+  placeholder="Buscar por capital de mi País"
+  (messageEvent)="query.set($event)"
+/>
+
+@if (countryResource.error()){
+<h3>{{ countryResource.error() }}</h3>
+}@if (countryResource.hasValue()) {
+<country-list [countries]="countryResource.value()" />
+}
