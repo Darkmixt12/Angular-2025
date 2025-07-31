@@ -1,3 +1,5 @@
-<country-search-input placeholder="Buscar por capital de mi País" (messageEvent)="consoleEventEmitter($event)" />
+<country-search-input 
+placeholder="Buscar por capital de mi País" (messageEvent)="consoleEventEmitter($event)" />
 <p> {{receivedMessage()}}</p>
-<country-list/>
+
+<country-list [countries]="countries()"/>
