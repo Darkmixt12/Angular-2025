@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { CountrySearchInputComponent } from "../../../shared/components/country-search-input/country-search-input.component";
 import { CountryListComponent } from "../../../shared/components/country-list/country-list.component";
 import { CountryService } from '../../services/country.service';
-import { RESTCountry } from '../../interfaces/rest-countries.interfaces';
+import { Country } from '../../interfaces/country-interface';
 
 @Component({
   selector: 'app-by-capital-page',
@@ -17,7 +17,7 @@ export class ByCapitalPageComponent {
 
   isLoading = signal(false)
   isError = signal<string|null>(null)
-  countries = signal<RESTCountry[]>([])
+  countries = signal<Country[]>([])
 
   consoleEventEmitter(output: string){
   if(this.isLoading()) return
