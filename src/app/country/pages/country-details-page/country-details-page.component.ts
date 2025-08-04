@@ -2,9 +2,10 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { rxResource } from '@angular/core/rxjs-interop'
 import { CountryService } from '../../services/country.service';
+import { NotFoundComponent } from "../../../shared/pages/not-found/not-found.component";
 @Component({
   selector: 'app-country-details-page',
-  imports: [],
+  imports: [NotFoundComponent],
   templateUrl: './country-details-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
