@@ -3,9 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { rxResource } from '@angular/core/rxjs-interop'
 import { CountryService } from '../../services/country.service';
 import { NotFoundComponent } from "../../../shared/pages/not-found/not-found.component";
+import { CountryInformationComponent } from "./country-information/country-information.component";
 @Component({
   selector: 'app-country-details-page',
-  imports: [NotFoundComponent],
+  imports: [NotFoundComponent, CountryInformationComponent],
   templateUrl: './country-details-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

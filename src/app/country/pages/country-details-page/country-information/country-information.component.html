@@ -1,1 +1,33 @@
-<p>country-information works!</p>,
+<section class="mx-10">
+
+	<div class="bg-base-100 border-base-300 border flex">
+    <h1 class="text-3xl">{{ country().name }}</h1>
+    <img class="w-10" [src]="country().flagSvg" [alt]="country().name">	
+
+	</div>
+		
+
+  <div class="stats bg-base-100 border-base-300 border">
+	
+    <div class="stat">
+      <div class="stat-title">Poblacion Actual</div>
+      <div class="stat-value">{{ country().population | number }}</div>
+      <div class="stat-actions"></div>
+      <div class="stat-figure text-primary">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="inline-block h-8 w-8 stroke-current"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
