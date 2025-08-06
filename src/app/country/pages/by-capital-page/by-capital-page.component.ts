@@ -34,7 +34,7 @@ export class ByCapitalPageComponent {
   //   this._countryService.searchByCapital(output).subscribe( {
   //     next: (countries) => {
   //       this.isLoading.set(false)
-  //       this.countries.set(countries)
+  //       this.countries.set(countries)t
   //   },
   //     error: ( err ) => {
   //       this.isLoading.set(false)

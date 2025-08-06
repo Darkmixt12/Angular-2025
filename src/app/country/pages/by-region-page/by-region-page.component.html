@@ -1,3 +1,22 @@
 <country-search-input placeholder="Buscar por Región" (messageEvent)="consoleEventEmitter($event)" />
-<p> {{receivedMessage()}}</p>
-<country-list [countries]="[]"/>
+
+
+
+<div class="flex-col p-2 m-6 text-center">
+	@for (regions of regionsList; track regions) {
+		<button
+			class="btn btn-soft mr-2 w-[100px]"
+			(click)="selectedRegion.set(regions)"
+			[class.btn-primary]="selectedRegion() === regions"
+		>
+			{{regions}}
+		</button>
+	}
+</div>
+
+<country-list [countries]="regionResource.value() ?? []"
+[errorMessage]="regionResource.error()"
+[isEmpty]="regionResource.value()?.length === 0"
+[isLoading]="regionResource.isLoading()"
+
+/>
