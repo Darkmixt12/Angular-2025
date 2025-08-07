@@ -10,6 +10,7 @@ import { CountryListComponent } from '../../../shared/components/country-list/co
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interfaces/country-interface';
 import { firstValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-by-capital-page',
@@ -21,6 +22,7 @@ export class ByCapitalPageComponent {
   receivedMessage = signal<string>('');
   _countryService = inject(CountryService);
   query = signal('');
+  router = inject(Router)
 
   // isLoading = signal(false)
   // isError = signal<string|null>(null)
@@ -49,6 +51,12 @@ export class ByCapitalPageComponent {
     params: () => ({ query: this.query() }),
     loader: async ({ params }) => {
       if (!params.query) return [];
+
+      this.router.navigate(['/country/by-capital'], {
+        queryParams: {
+          query: params.query
+        }
+      })
 
       return await firstValueFrom(
         this._countryService.searchByCapital(params.query)

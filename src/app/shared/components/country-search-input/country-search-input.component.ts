@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, effect, EventEmitter, input, output, Output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, EventEmitter, input, linkedSignal, output, Output, signal } from '@angular/core';
 
 @Component({
   selector: 'country-search-input',
@@ -10,8 +10,8 @@ export class CountrySearchInputComponent {
 
 messageEvent = output<string>()
 placeholder = input('Buscar')
-
-inputValue = signal<string>('')
+  initialValue = input<string>();
+  inputValue = linkedSignal<string>(() => this.initialValue() ?? '');
 
 debounceEffect = effect( (onCleanup) => {
 
